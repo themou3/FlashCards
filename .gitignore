@@ -1,7 +1,5 @@
-instance/database.db
-__pycache__/app.cpython-311.pyc
+instance/
+__pycache__/
 config.ini
-static/fonts/JetBrainsMono-Bold.ttf
-static/fonts/JetBrainsMono-Regular.woff2
-static/fonts/JetBrainsMono-Regular.ttf
-static/fonts/JetBrainsMono-Bold.woff2
+static/fonts/
+.venv/

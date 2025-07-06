@@ -25,10 +25,13 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(100), unique=True, nullable=False)
     password_hash = db.Column(db.String(100), nullable=False)
+    card_sets = db.relationship('CardSet', backref='user', lazy=True)
 
 class CardSet(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     name = db.Column(db.String(100), nullable=False)
+    description = db.Column(db.String(200), nullable=True)
     cards = db.relationship('Card', backref='set', lazy=True)
     cards_counter = db.Column(db.Integer, default=0)
 
@@ -141,7 +144,7 @@ def logout():
 @app.route('/card-sets', methods=['GET'])
 @login_required
 def get_card_sets():
-    sets = CardSet.query.all()
+    sets = CardSet.query.filter_by(user_id=session['user_id']).all()
     return jsonify([{"id": s.id, "name": s.name} for s in sets])
 
 # Add a new card set
@@ -149,7 +152,7 @@ def get_card_sets():
 @login_required
 def add_card_set():
     data = request.json
-    new_set = CardSet(name=data['name'])
+    new_set = CardSet(name=data['name'], description=data.get('description', ''), user_id=session['user_id'])
     db.session.add(new_set)
     db.session.commit()
     return jsonify({"id": new_set.id, "name": new_set.name}), 201
@@ -195,17 +198,21 @@ def next_card(set_id):
 
     if not cards:
         return jsonify({'error': 'No cards available'}), 404
-    
-    current_index = session.get('current_card_index', 0)
 
+    current_index = session.get('current_card_index', 0)
+    if current_index >= len(cards):
+        current_index = 0
     card = cards[current_index]
 
     next_index = (current_index + 1) % len(cards)
     session['current_card_index'] = next_index
+
+    first_card_id_in_set = cards[0].id
+    new_card_id = card.id - (first_card_id_in_set - 1)
     
     if card:
         return jsonify({
-            'id': card.id,
+            'id': new_card_id,
             'front_text': card.front_text,
             'back_text': card.back_text,
             'is_learned': card.is_learned
@@ -323,4 +330,4 @@ def delete_card_set(set_id):
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()  # Create tables if they don't exist
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    app.run(debug=True, host='0.0.0.0', port=3535)
