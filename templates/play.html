@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Playing Set: {{ set_id }}</title>
+    <link rel="stylesheet" href="/static/dashboard.css">
+    <script>
+        window.SET_ID = "{{ set_id }}";
+    </script>
+    <script src="/static/play.js" defer></script>
+</head>
+<body>
+    <nav>
+        <h2 class="header-style">
+            <a href="/dashboard" class="header-name" style="text-decoration: none;">←</a>
+        </h2>
+        <div class="line-1"></div>
+    </nav>
+    <div id="gameContainer">
+        <!-- Динамически загружаемая карта -->
+        <div class="card-container">
+            <form method="POST" class="card-form">
+            <div class="cardAnimation">
+                <div class="card">
+                    <div class="cardId"></div>
+                    <div class="front"></div>
+                    <div class="back"></div>
+                    <div class="liked"></div>
+                </div>
+            </div>
+                <div class="card-buttons">
+                    <button type="button" class="like-btn">🖤</button>
+                    <button type="button" class="skip-btn">→</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit {{ set_id }}</title>
+    <link rel="stylesheet" href="/static/dashboard.css">
+    <script>
+        window.SET_ID = "{{ set_id }}";
+    </script>
+    <script src="/static/edit.js" defer></script>
+</head>
+<body>
+    <nav>
+        <h2 class="header-style">
+            <a href="/dashboard" class="header-name" style="text-decoration: none;">←</a>
+        </h2>
+        <button type="submit" button id="saveButton" class="save-button" disabled>Save</button>
+        <div class="line-1"></div>
+    </nav>
+    <h3 style="text-align: center;">Edit Card Set: {{ set_id }}</h3>
+    <!-- Card Container -->
+        <!-- Dynamically created cards (by Default last one is empty) -->
+        <div id="cardContainer" class="container"></div>
+</body>
+</html>

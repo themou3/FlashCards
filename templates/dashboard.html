@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/static/dashboard.css">
+</head>
+<body>
+    <nav>
+        <form action="/logout" style="position: sticky;">
+            <h2 class="header-style">
+                <a href="dashboard" class="header-name" style="text-decoration: none;">
+                    Your Card Sets
+                </a>
+            </h2>
+            <button type="submit" class="logout-button">Log Out</button>
+            <div class="line-1"></div>
+        </form>
+    </nav>
+    <center>
+        <div class="tool-container">
+            <section class="tool-grid" id="setsContainer">
+                <!-- Default set -->
+                    <div class="tool-box" style="border: solid;" id="defaultSet" data-set-id="0">
+                        <div class="tool-name">
+                            ALL
+                        </div>
+                    </div>
+                <!-- New sets will be inserted here -->
+                <!-- Add new set -->
+                <div class="tool-box" id="newSet" style="border: dashed;">
+                    <div class="tool-name">
+                        +
+                    </div>
+                </div>
+            </section>
+        </div>
+    </center>
+        <!-- Modal Overlay -->
+        <div id="modalOverlay" class="modal-overlay"></div>
+        <!-- Popup form for adding a new set -->
+        <div id="setPopupForm" class="popup hidden">
+            <div class="popup-content">
+                <h3>New Card Set</h3>
+                <input type="text" id="newSetName" placeholder="Set Name" autocomplete="off">
+                <button id="saveSetButton" class="popup-button">Create</button>
+                <button id="closePopupButton" class="popup-button">Close</button>
+            </div>
+        </div>
+        <div id="popupForm" class="popup hidden">
+            <div class="popup-content">
+                <!-- Content will be dynamically inserted -->
+            </div>
+        </div>     
+        <script src="/static/dashboards.js"></script>
+</body>
+</html>

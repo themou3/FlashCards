@@ -1,0 +1,185 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #2c2c3b; /* Similar to ChatGPT's background */
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+}
+
+.body-dashboard {
+  font-family: Arial, sans-serif;
+  background-color: #2c2c3b; /* Similar to ChatGPT's background */
+  height: 100vh;
+  display: flex;
+  color: #ffffff;
+}
+
+/* Login Container */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* Login Card */
+.login-card {
+  background-color: #2c2c2e;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 400px;
+}
+
+.login-card h1 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.login-card p {
+  margin-bottom: 10px;
+  font-size: 1rem;
+  color: #666;
+}
+
+/* Login Form */
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form input {
+  margin-bottom: 15px;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.login-form input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.login-form button {
+  padding: 10px;
+  font-size: 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.login-form button:hover {
+  background-color: #0056b3;
+}
+
+/* Login Footer */
+.login-footer {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.login-footer a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.login-footer a:hover {
+  text-decoration: underline;
+}
+
+.logout-form {
+  margin-top: 30px;
+  text-align: center;
+  position: absolute;
+  right: 10px;
+  top: 5px;
+}
+
+.header-space {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .header-dashboard {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: left;
+    margin-bottom: 15px;
+  }
+
+  .card-set-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+.card-set {
+    width: 200px;
+    height: 200px;
+    background-color: #2c2c3b;
+    border-radius: 15px;
+    border: 2px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-set h2 {
+    font-size: 2em;
+}
+
+.card-set a {
+    margin-top: 10px;
+    text-decoration: none;
+    color: #101016;
+    font-size: 1.2em;
+}
+
+.card-container {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card {
+    background-color: #fff;
+    padding: 15px;
+    margin: 10px;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
